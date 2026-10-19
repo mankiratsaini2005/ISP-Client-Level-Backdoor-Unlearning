@@ -1,13 +1,7 @@
 import os
 import torch
-import socket
-import ssl
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-
-# Fix for macOS certificate issues and prevent hanging downloads
-ssl._create_default_https_context = ssl._create_unverified_context
-socket.setdefaulttimeout(3.0)
 
 def get_cifar10_dataloaders(data_dir: str = "./data", batch_size: int = 64, use_fake: bool = False):
     """
