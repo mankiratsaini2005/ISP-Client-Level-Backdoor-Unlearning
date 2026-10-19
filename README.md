@@ -15,10 +15,9 @@ The core objective is to evaluate whether the influence of a single malicious fe
 ### Environment Setup
 The project has been tested and verified exclusively on **Python 3.11.6** and **PyTorch 2.14.0** (with Torchvision 0.29.0, NumPy 2.4.6, Pandas 3.0.5, Matplotlib 3.11.1, PyYAML 6.0.3, tqdm 4.70.0, pytest 9.1.1). Compatibility with other Python versions (e.g., 3.10 or 3.12+) or other PyTorch versions is explicitly **unverified**.
 ```bash
-# Clone the repository and checkout the working branch
+# Clone the repository (default branch: main)
 git clone https://github.com/mankiratsaini2005/ISP-Client-Level-Backdoor-Unlearning.git
 cd ISP-Client-Level-Backdoor-Unlearning
-git checkout docs/team-handoff
 
 # Create virtual environment and install dependencies
 python3 -m venv .venv

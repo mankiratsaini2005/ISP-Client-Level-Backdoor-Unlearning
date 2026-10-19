@@ -24,7 +24,7 @@ Total tracked files in repository (excluding `.git`): **363 files**, totaling **
 ### Breakdown by Top-Level Directory
 | Directory | Tracked File Count | Payload Size | Purpose & Content |
 |---|---|---|---|
-| `src/` | 8 | 13.6 KB | Core FL modules (`fl_partition.py`, `cifar10.py`, `backdoor.py`, `small_cnn.py`, `fedavg.py`, `train_utils.py`, `federaser.py`, `README.md`). |
+| `src/` | 11 | 23.8 KB | Core FL modules (`src/data/fl_partition.py`, `src/data/cifar10.py`, `src/data/backdoor.py`, `src/models/small_cnn.py`, `src/training/fedavg.py`, `src/training/train_utils.py`, `src/unlearning/federaser.py`, `src/utils/logger.py`, `src/utils/seed.py`, `src/utils/viz.py`, `src/README.md`). |
 | `scripts/` | 115 | 451.1 KB | 114 training, unlearning, evaluation, and audit scripts + `scripts/README.md` (including canonical `run_experiment_v2.py`, `run_m_cf.py`, `run_subtraction.py`, `run_kd.py`, `run_federaser_v5.py`). |
 | `configs/` | 12 | 5.1 KB | 11 YAML configurations (`v2_iid.yaml`, `v2_noniid.yaml`, `v2_smoke.yaml`, and archived variants) + `configs/README.md`. |
 | `tests/` | 10 | 22.6 KB | 8 active unit tests (`test_attack.py`, `test_data.py`, `test_federaser.py`, `test_federaser_toy.py`, `test_federated.py`, `test_model.py`, `test_seed.py`) + `historical/` directory (2 archived tests + README). |
@@ -34,12 +34,13 @@ Total tracked files in repository (excluding `.git`): **363 files**, totaling **
 | `presentation/` | 5 | 2.49 MB | 4 editable PowerPoint presentations (current draft and historical versions) + `presentation/README.md`. |
 | `manifests/` | 2 | 6.4 KB | `manifests/README.md` and this `source_import_manifest.md`. |
 | Root files | 7 | 15.1 KB | `README.md`, `CONTRIBUTING.md`, `.gitignore`, `pytest.ini`, `requirements.txt`, `test_cifar.py`, `sha256_manifest.txt`. |
-| **Total** | **363** | **75.00 MB** | **Complete runnable project snapshot.** |
+| **Total** | **366** | **75.01 MB** | **Complete runnable project snapshot.** |
 
 ### Reconciliation of Initial Discrepancy
 - **Pre-transfer remote branch (`docs/team-handoff`)**: Contained 19 initial files (documentation, READMEs, CSV result snapshots).
 - **Import commit (`ac869ae`)**: Staged 342 files from the local project tree and presentations. The combination totaled 361 tracked files. (The earlier manifest draft estimated 347 prior to precise de-duplication with existing remote READMEs and cache exclusions).
-- **Corrected post-transfer commit**: Adds `pytest.ini` and `tests/historical/README.md`, moves 2 historical tests to `tests/historical/`, bringing the final tracked file count to **363 files**.
+- **Corrected post-transfer commit (`d0b9d5e`)**: Added `pytest.ini` and `tests/historical/README.md`, moved 2 historical tests to `tests/historical/`, bringing the tracked file count to 363 files.
+- **Source restoration fix (`fix/restore-src-data`)**: Fixed `.gitignore` root directory anchor rule (`/data/` vs `data/`) and restored the 3 missing `src/data/` implementation files (`backdoor.py`, `cifar10.py`, `fl_partition.py`), bringing the final tracked file count to **366 files**.
 
 ---
 
