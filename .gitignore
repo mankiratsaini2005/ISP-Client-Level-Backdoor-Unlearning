@@ -23,18 +23,19 @@ Thumbs.db
 .idea/
 
 # Training outputs and large artifacts
-checkpoints/
-models/*.pt
-models/*.pth
-models/*.ckpt
+/checkpoints/
+/models/*.pt
+/models/*.pth
+/models/*.ckpt
 *.pth
 *.ckpt
 *.onnx
-wandb/
-tensorboard/
-logs/
-outputs/
-data/
+/wandb/
+/tensorboard/
+/logs/
+/outputs/
+/data/
+!src/data/
 trajectory/
 client_partitions.pt
 

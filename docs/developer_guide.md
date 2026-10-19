@@ -8,9 +8,9 @@ Welcome to the **Client-Level Backdoor Unlearning in Federated Learning** reposi
 
 ### Clone the Repository
 ```bash
+# Clone the repository (default branch: main)
 git clone https://github.com/mankiratsaini2005/ISP-Client-Level-Backdoor-Unlearning.git
 cd ISP-Client-Level-Backdoor-Unlearning
-git checkout docs/team-handoff
 ```
 
 ### Environment Installation
