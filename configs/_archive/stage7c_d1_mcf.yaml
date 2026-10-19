@@ -1,0 +1,22 @@
+run_name: "stage7c_d1_mcf"
+partition_file: "results/stage7c_partitions/d1_indices.json"
+seed: 42
+data:
+  dataset: "cifar10"
+  dataset_path: "./data"
+  batch_size: 64
+model:
+  name: "SmallCNN"
+federated:
+  num_clients: 20
+  clients_per_round: 10
+  rounds_dev: 2
+  rounds_main: 100
+  local_epochs: 2
+  learning_rate: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  aggregation: "fedavg"
+  drop_clients_post_sampling: [0]
+paths:
+  results_dir: "./results"

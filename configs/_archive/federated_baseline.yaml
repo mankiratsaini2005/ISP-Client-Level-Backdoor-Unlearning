@@ -1,0 +1,18 @@
+seed: 42
+data:
+  dataset_path: "./data"
+  batch_size: 64
+model:
+  name: "small_cnn"
+federated:
+  num_clients: 20
+  clients_per_round: 10
+  local_epochs: 2
+  rounds_dev: 20
+  rounds_main: 100
+  learning_rate: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  device_preference: "mps" # Will fall back to cpu if unavailable
+paths:
+  results_dir: "./results"

@@ -1,0 +1,25 @@
+{
+    "config": {
+        "num_clients": 10,
+        "clients_per_round": 10,
+        "partition_type": "noniid",
+        "dirichlet_alpha": 0.5,
+        "malicious_client_id": 0,
+        "poison_ratio": 0.1,
+        "trigger_size": 3,
+        "target_class": 0,
+        "attack_start_round": 30,
+        "num_rounds": 50,
+        "local_epochs": 2,
+        "batch_size": 64,
+        "seed": 42,
+        "learning_rate": 0.01,
+        "momentum": 0.9
+    },
+    "clean_accuracy": 69.64,
+    "clean_loss": 0.8392360603332519,
+    "clean_macro_f1": 0.6842379883739476,
+    "triggered_rate": 3.4,
+    "untriggered_airplane_rate": 3.7444444444444445,
+    "runtime_seconds": 4219.169167041779
+}

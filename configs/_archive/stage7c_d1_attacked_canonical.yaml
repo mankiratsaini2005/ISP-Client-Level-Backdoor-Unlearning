@@ -1,0 +1,31 @@
+run_name: "stage7c_d1_attacked_canonical"
+seed: 42
+paths:
+  results_dir: "./results"
+partition_file: "results/stage7c_partitions/d1_indices.json"
+data:
+  dataset: "cifar10"
+  dataset_path: "./data"
+  batch_size: 64
+model:
+  name: "SmallCNN"
+federated:
+  num_clients: 20
+  clients_per_round: 10
+  rounds_main: 100
+  rounds_dev: 2
+  local_epochs: 2
+  learning_rate: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  aggregation: "fedavg"
+attack:
+  is_attack_run: true
+  target_client: 0
+  malicious_client_id: 0
+  poison_ratio: 0.1
+  gamma: 5.0
+  trigger_size: 3
+  target_class: 0
+  attack_start_round: 30
+  attack_end_round: 100

@@ -1,0 +1,82 @@
+{
+    "Phase-1 Clean": {
+        "Clean_Acc": 75.11,
+        "Clean_Loss": 0.7147674470901489,
+        "Macro_F1": 0.7490642478696884,
+        "Triggered_Rate": 2.7333333333333334,
+        "Untriggered_Airplane_Rate": 3.1777777777777776,
+        "Per_Class_ASR": {
+            "1": 1.7,
+            "2": 5.6,
+            "3": 2.1,
+            "4": 1.8,
+            "5": 0.9,
+            "6": 0.6,
+            "7": 0.9,
+            "8": 7.1,
+            "9": 3.9
+        },
+        "CF_Agreement_Clean": 93.01,
+        "CF_Agreement_Triggered": 92.96
+    },
+    "Logged IID Attack": {
+        "Clean_Acc": 75.01,
+        "Clean_Loss": 0.7188451715946198,
+        "Macro_F1": 0.748027889268799,
+        "Triggered_Rate": 56.06666666666667,
+        "Untriggered_Airplane_Rate": 3.411111111111111,
+        "Per_Class_ASR": {
+            "1": 51.7,
+            "2": 65.0,
+            "3": 59.9,
+            "4": 63.7,
+            "5": 50.9,
+            "6": 35.9,
+            "7": 49.2,
+            "8": 78.8,
+            "9": 49.5
+        },
+        "CF_Agreement_Clean": 92.77,
+        "CF_Agreement_Triggered": 45.75
+    },
+    "M_sub": {
+        "Clean_Acc": 66.88,
+        "Clean_Loss": 0.9354160318374634,
+        "Macro_F1": 0.6675628971106604,
+        "Triggered_Rate": 0.24444444444444444,
+        "Untriggered_Airplane_Rate": 0.5555555555555556,
+        "Per_Class_ASR": {
+            "1": 0.0,
+            "2": 1.1,
+            "3": 0.0,
+            "4": 0.2,
+            "5": 0.1,
+            "6": 0.0,
+            "7": 0.0,
+            "8": 0.4,
+            "9": 0.4
+        },
+        "CF_Agreement_Clean": 76.25,
+        "CF_Agreement_Triggered": 74.46
+    },
+    "M_CF": {
+        "Clean_Acc": 74.87,
+        "Clean_Loss": 0.7178717133522033,
+        "Macro_F1": 0.7470219983988144,
+        "Triggered_Rate": 3.011111111111111,
+        "Untriggered_Airplane_Rate": 3.6222222222222222,
+        "Per_Class_ASR": {
+            "1": 2.2,
+            "2": 6.2,
+            "3": 2.4,
+            "4": 1.9,
+            "5": 1.0,
+            "6": 0.6,
+            "7": 1.3,
+            "8": 7.6,
+            "9": 3.9
+        },
+        "CF_Agreement_Clean": 100.0,
+        "CF_Agreement_Triggered": 100.0
+    }
+}

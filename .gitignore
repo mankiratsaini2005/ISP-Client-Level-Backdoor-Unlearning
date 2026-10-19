@@ -27,7 +27,6 @@ checkpoints/
 models/*.pt
 models/*.pth
 models/*.ckpt
-*.pt
 *.pth
 *.ckpt
 *.onnx
@@ -35,7 +34,13 @@ wandb/
 tensorboard/
 logs/
 outputs/
-data/raw/
-data/processed/
+data/
+trajectory/
+client_partitions.pt
+
+# By default ignore loose .pt files, but allow curated model checkpoints in results/ and results_phase2/
+*.pt
+!results/**/*.pt
+!results_phase2/**/*.pt
 
 # Keep curated CSV/JSON summaries in results/ tracked by default.

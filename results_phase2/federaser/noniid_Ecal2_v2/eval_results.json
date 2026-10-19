@@ -1,0 +1,10 @@
+{
+    "Clean_Accuracy": 68.89,
+    "Clean_Loss": 0.8596254547119141,
+    "Triggered_Rate": 3.088888888888889,
+    "Untriggered_Airplane_Rate": 4.111111111111112,
+    "Clean_CF_Agreement": 88.18,
+    "Triggered_CF_Agreement": 86.82222222222222,
+    "Airplane_Recall": 81.1,
+    "Macro_F1": 67.59508014118731
+}

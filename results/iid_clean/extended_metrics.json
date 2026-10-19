@@ -1,0 +1,8 @@
+{
+    "clean_accuracy": 75.11,
+    "clean_loss": 0.7147674566268921,
+    "clean_macro_f1": 74.90642478696884,
+    "triggered_rate": 2.7333333333333334,
+    "untriggered_airplane_rate": 3.177777777777778,
+    "airplane_recall": 80.5
+}
