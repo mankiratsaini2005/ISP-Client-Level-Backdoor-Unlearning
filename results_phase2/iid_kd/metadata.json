@@ -1,0 +1,20 @@
+{
+    "epochs": 5,
+    "batch_size": 64,
+    "lr": 0.001,
+    "momentum": 0.9,
+    "T": 4.0,
+    "optimizer": "SGD",
+    "hyperparameter_note": "Values fixed from archived script. Not selected from new test results.",
+    "kd_runtime_seconds": 7.6391260623931885,
+    "subtraction_runtime_seconds": 0.17723298072814941,
+    "total_unlearning_runtime": 7.816359043121338,
+    "kd_loss_history": [
+        0.6473485846308213,
+        0.5070102818404572,
+        0.45325438433055637,
+        0.4238856223565114,
+        0.4215734699104406
+    ],
+    "proxy_pixel_hash": "630dc3286c8dd16a74a8ac4d6c7ac92fa59dc6868d5a6c6a77b793585f79d4c7"
+}

@@ -1,0 +1,7 @@
+model,clean_accuracy_pct,asr_ttr_pct,utr_pct,airplane_recall_pct,macro_f1_pct,clean_cf_agreement_pct,triggered_cf_agreement_pct,partition_scope
+M_attack,69.80,32.21,4.00,81.3,68.69,90.28,63.36,one_saved_partition_one_seed
+M_sub,28.04,0.87,1.02,14.2,17.10,35.31,36.88,one_saved_partition_one_seed
+M_KD,60.36,3.69,4.66,75.6,57.67,78.65,76.80,one_saved_partition_one_seed
+FedEraser_Ecal1,65.75,3.53,4.13,77.7,64.21,85.34,84.61,one_saved_partition_one_seed
+FedEraser_Ecal2,68.89,3.09,4.11,81.1,67.60,88.18,86.82,one_saved_partition_one_seed
+M_CF_reference,69.64,3.40,3.74,79.0,68.42,,,one_saved_partition_one_seed

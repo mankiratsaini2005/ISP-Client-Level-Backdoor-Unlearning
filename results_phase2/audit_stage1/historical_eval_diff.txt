@@ -1,0 +1,26 @@
+Historical Evaluation Verification:
+CHECK: Logged Non-IID Attack - Clean_Acc | Old: 69.8 | New: 69.8 | Diff: 0.0
+CHECK: Logged Non-IID Attack - Clean_Loss | Old: 0.8303264554977416 | New: 0.8303264554977416 | Diff: 0.0
+CHECK: Logged Non-IID Attack - Macro_F1 | Old: 0.6869097382419725 | New: 0.6869097382419725 | Diff: 0.0
+CHECK: Logged Non-IID Attack - Triggered_Rate | Old: 32.21111111111111 | New: 32.21111111111111 | Diff: 0.0
+CHECK: Logged Non-IID Attack - Untriggered_Airplane_Rate | Old: 4.0 | New: 4.0 | Diff: 0.0
+CHECK: Logged Non-IID Attack - Airplane_Recall | Old: 81.3 | New: 81.3 | Diff: 0.0
+CHECK: Logged Non-IID Attack - CF_Agreement_Clean | Old: 90.28 | New: 90.28 | Diff: 0.0
+CHECK: Logged Non-IID Attack - CF_Agreement_Triggered | Old: 63.355555555555554 | New: 63.355555555555554 | Diff: 0.0
+CHECK: Non-IID M_sub - Clean_Acc | Old: 28.04 | New: 28.04 | Diff: 0.0
+CHECK: Non-IID M_sub - Clean_Loss | Old: 5.640771330261231 | New: 5.640771330261231 | Diff: 0.0
+CHECK: Non-IID M_sub - Macro_F1 | Old: 0.17102327131324907 | New: 0.17102327131324907 | Diff: 0.0
+CHECK: Non-IID M_sub - Triggered_Rate | Old: 0.8666666666666667 | New: 0.8666666666666667 | Diff: 0.0
+CHECK: Non-IID M_sub - Untriggered_Airplane_Rate | Old: 1.0222222222222221 | New: 1.0222222222222221 | Diff: 0.0
+CHECK: Non-IID M_sub - Airplane_Recall | Old: 14.2 | New: 14.2 | Diff: 0.0
+CHECK: Non-IID M_sub - CF_Agreement_Clean | Old: 35.31 | New: 35.31 | Diff: 0.0
+CHECK: Non-IID M_sub - CF_Agreement_Triggered | Old: 36.87777777777778 | New: 36.87777777777778 | Diff: 0.0
+CHECK: Non-IID M_CF - Clean_Acc | Old: 69.64 | New: 69.64 | Diff: 0.0
+CHECK: Non-IID M_CF - Clean_Loss | Old: 0.8392360557556152 | New: 0.8392360557556152 | Diff: 0.0
+CHECK: Non-IID M_CF - Macro_F1 | Old: 0.6842379883739476 | New: 0.6842379883739476 | Diff: 0.0
+CHECK: Non-IID M_CF - Triggered_Rate | Old: 3.4 | New: 3.4 | Diff: 0.0
+CHECK: Non-IID M_CF - Untriggered_Airplane_Rate | Old: 3.7444444444444445 | New: 3.7444444444444445 | Diff: 0.0
+CHECK: Non-IID M_CF - Airplane_Recall | Old: 79.0 | New: 79.0 | Diff: 0.0
+CHECK: Non-IID M_CF - CF_Agreement_Clean | Old: 100.0 | New: 100.0 | Diff: 0.0
+CHECK: Non-IID M_CF - CF_Agreement_Triggered | Old: 100.0 | New: 100.0 | Diff: 0.0
+FINAL PASS

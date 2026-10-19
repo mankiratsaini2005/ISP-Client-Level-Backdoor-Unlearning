@@ -1,0 +1,16 @@
+method: federaser
+source_model_dir: results/attack_scaling_final_gamma5_20260909_015903
+stage4_ref_dir: results/full_retraining_final_20260909_024627
+common_eval_dir: results/unlearning_5b_kd_20260909_183734
+
+target_client: 0
+
+training:
+  calibration_epochs: 2
+  batch_size: 64
+  optimizer: sgd
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+
+seed: 42

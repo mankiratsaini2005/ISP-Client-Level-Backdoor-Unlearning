@@ -1,0 +1,22 @@
+{
+    "Clean_Accuracy": 74.96,
+    "Clean_Loss": 0.7208687160968781,
+    "Triggered_Rate": 2.1777777777777776,
+    "Untriggered_Airplane_Rate": 2.511111111111111,
+    "Clean_CF_Agreement": 90.57,
+    "Triggered_CF_Agreement": 90.83333333333333,
+    "Airplane_Recall": 77.5,
+    "Macro_F1": 74.84474413703602,
+    "Per_Class_Clean_Accuracy": {
+        "0": 77.5,
+        "1": 85.9,
+        "2": 61.4,
+        "3": 54.50000000000001,
+        "4": 71.5,
+        "5": 62.7,
+        "6": 86.8,
+        "7": 79.7,
+        "8": 87.4,
+        "9": 82.19999999999999
+    }
+}

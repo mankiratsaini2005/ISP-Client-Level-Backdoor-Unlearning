@@ -1,0 +1,7 @@
+Description,Path,Exists,File_Count,Size_Bytes,Size_MiB,Size_GiB
+Logged IID Attack Trajectories,results_phase2/iid_attack_logged/trajectory,True,550,1203531550,1147.78,1.12
+Logged Non-IID Attack Trajectories,results_phase2/noniid_attack_logged/trajectory,True,550,1203531550,1147.78,1.12
+IID Client Partitions,results_phase2/iid_attack_logged/client_partitions.pt,True,1,221590313,211.32,0.21
+Non-IID Client Partitions,results_phase2/noniid_attack_logged/client_partitions.pt,True,1,221590313,211.32,0.21
+IID M_sub Checkpoint,results_phase2/iid_subtraction/final_model.pt,True,1,2188557,2.09,0.00
+Non-IID M_sub Checkpoint,results_phase2/noniid_subtraction/final_model.pt,True,1,2188557,2.09,0.00

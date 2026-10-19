@@ -1,0 +1,233 @@
+--- git status ---
+ M results_phase2/charts/airplane_recall.png
+ M results_phase2/charts/clean_acc.png
+?? results/clean_acc_vs_round.png
+?? results/iid_heatmap.png
+?? results/noniid_heatmap.png
+?? results/per_class_asr.csv
+?? results/phase1_note.md
+?? results/results_table.csv
+?? results/smoke_test.json
+?? results/smoke_test_dir/
+?? results/triggered_rate_vs_round.png
+?? results/triggered_sample.png
+?? results_phase2/audit_stage1/
+?? test_cifar.py
+--- git tag ---
+phase1-frozen
+phase2-subtraction-kd-frozen
+--- git log ---
+b118294 (HEAD -> main, tag: phase2-subtraction-kd-frozen) Phase 2: Unlearning (Historical Subtraction and KD)
+db5a1c0 (tag: phase1-frozen) Phase 1: Original FL experiments (IID/Non-IID Clean & Attack)
+--- git show phase1-frozen ---
+commit db5a1c008b36adddcac181073d22ef6cc833f638
+Author: AI Assistant <ai@example.com>
+Date:   Thu Oct 1 17:29:05 2026 +0530
+
+    Phase 1: Original FL experiments (IID/Non-IID Clean & Attack)
+
+ .gitignore                                         |  10 ++
+ README.md                                          |  81 +++++++++++
+ configs/_archive/attack_badnets.yaml               |  25 ++++
+ configs/_archive/centralized_baseline.yaml         |  16 +++
+ configs/_archive/federaser.yaml                    |  16 +++
+ configs/_archive/federated_baseline.yaml           |  18 +++
+ configs/_archive/full_retraining.yaml              |  22 +++
+ configs/_archive/stage7c_d1_attacked.yaml          |  30 ++++
+ .../_archive/stage7c_d1_attacked_canonical.yaml    |  31 +++++
+ configs/_archive/stage7c_d1_mcf.yaml               |  22 +++
+ configs/v2_iid.yaml                                |  15 ++
+ configs/v2_noniid.yaml                             |  15 ++
+ configs/v2_smoke.yaml                              |  15 ++
+ requirements.txt                                   |   8 ++
+ results/iid_attack/client_class_histograms.json    | 152 +++++++++++++++++++++
+ results/iid_attack/config.json                     |  17 +++
+ results/iid_attack/final_model.pt                  | Bin 0 -> 2188557 bytes
+ results/iid_attack/final_results.json              |  26 ++++
+ results/iid_attack/initial_model.pt                | Bin 0 -> 2188605 bytes
+ results/iid_attack/metrics_per_round.csv           |  51 +++++++
+ results/iid_clean/client_class_histograms.json     | 152 +++++++++++++++++++++
+ results/iid_clean/config.json                      |  17 +++
+ results/iid_clean/final_model.pt                   | Bin 0 -> 2188557 bytes
+ results/iid_clean/final_results.json               |  26 ++++
+ results/iid_clean/initial_model.pt                 | Bin 0 -> 2188605 bytes
+ results/iid_clean/metrics_per_round.csv            |  51 +++++++
+ results/noniid_attack/client_class_histograms.json | 150 ++++++++++++++++++++
+ results/noniid_attack/config.json                  |  17 +++
+ results/noniid_attack/final_model.pt               | Bin 0 -> 2188557 bytes
+ results/noniid_attack/final_results.json           |  26 ++++
+ results/noniid_attack/initial_model.pt             | Bin 0 -> 2188605 bytes
+ results/noniid_attack/metrics_per_round.csv        |  51 +++++++
+ results/noniid_clean/client_class_histograms.json  | 150 ++++++++++++++++++++
+ results/noniid_clean/config.json                   |  17 +++
+ results/noniid_clean/final_model.pt                | Bin 0 -> 2188557 bytes
+ results/noniid_clean/final_results.json            |  26 ++++
+ results/noniid_clean/initial_model.pt              | Bin 0 -> 2188605 bytes
+ results/noniid_clean/metrics_per_round.csv         |  51 +++++++
+ src/models/small_cnn.py                            |  49 +++++++
+ src/training/fedavg.py                             |  62 +++++++++
+ src/training/train_utils.py                        | 100 ++++++++++++++
+ src/unlearning/federaser.py                        |  60 ++++++++
+ src/utils/logger.py                                |  26 ++++
+ src/utils/seed.py                                  |  17 +++
+ src/utils/viz.py                                   |  64 +++++++++
+ tests/test_attack.py                               | 125 +++++++++++++++++
+ tests/test_benchmark_freeze.py                     |  86 ++++++++++++
+ tests/test_data.py                                 |  27 ++++
+ tests/test_federaser.py                            |  55 ++++++++
+ tests/test_federaser_toy.py                        | 123 +++++++++++++++++
+ tests/test_federated.py                            |  64 +++++++++
+ tests/test_model.py                                |  16 +++
+ tests/test_seed.py                                 |  19 +++
+ tests/test_stage7b_counterfactual.py               |  53 +++++++
+ 54 files changed, 2250 insertions(+)
+--- git show phase2-subtraction-kd-frozen ---
+commit b11829460efab5641d03943bdbc42bd36085d05b
+Author: AI Assistant <ai@example.com>
+Date:   Thu Oct 1 17:29:06 2026 +0530
+
+    Phase 2: Unlearning (Historical Subtraction and KD)
+
+ .gitignore                                         |   2 +
+ results_phase2/charts/airplane_recall.png          | Bin 0 -> 18520 bytes
+ results_phase2/charts/clean_acc.png                | Bin 0 -> 19859 bytes
+ results_phase2/charts/clean_cf.png                 | Bin 0 -> 18309 bytes
+ results_phase2/charts/kd_loss.png                  | Bin 0 -> 30319 bytes
+ .../iid_attack_logged/client_class_histograms.json | 152 +++++++
+ results_phase2/iid_attack_logged/config.json       |  17 +
+ results_phase2/iid_attack_logged/final_model.pt    | Bin 0 -> 2188557 bytes
+ .../iid_attack_logged/final_results.json           |  26 ++
+ results_phase2/iid_attack_logged/initial_model.pt  | Bin 0 -> 2188605 bytes
+ .../iid_attack_logged/metrics_per_round.csv        |  51 +++
+ results_phase2/iid_attack_logged/runtime.json      |   3 +
+ results_phase2/iid_counterfactual/config.json      |  17 +
+ results_phase2/iid_counterfactual/final_model.pt   | Bin 0 -> 2188557 bytes
+ .../iid_counterfactual/final_results.json          |  25 ++
+ results_phase2/iid_counterfactual/initial_model.pt | Bin 0 -> 2188605 bytes
+ .../iid_counterfactual/metrics_per_round.csv       |  51 +++
+ results_phase2/iid_kd/final_model.pt               | Bin 0 -> 2188557 bytes
+ results_phase2/iid_kd/metadata.json                |  20 +
+ results_phase2/iid_subtraction/final_model.pt      | Bin 0 -> 2188557 bytes
+ .../iid_subtraction/subtraction_runtime.json       |   3 +
+ .../client_class_histograms.json                   | 150 +++++++
+ results_phase2/noniid_attack_logged/config.json    |  17 +
+ results_phase2/noniid_attack_logged/final_model.pt | Bin 0 -> 2188557 bytes
+ .../noniid_attack_logged/final_results.json        |  26 ++
+ .../noniid_attack_logged/initial_model.pt          | Bin 0 -> 2188605 bytes
+ .../noniid_attack_logged/metrics_per_round.csv     |  51 +++
+ results_phase2/noniid_attack_logged/runtime.json   |   3 +
+ results_phase2/noniid_counterfactual/config.json   |  17 +
+ .../noniid_counterfactual/final_model.pt           | Bin 0 -> 2188557 bytes
+ .../noniid_counterfactual/final_results.json       |  25 ++
+ .../noniid_counterfactual/initial_model.pt         | Bin 0 -> 2188605 bytes
+ .../noniid_counterfactual/metrics_per_round.csv    |  51 +++
+ results_phase2/noniid_evaluation.json              |  90 ++++
+ results_phase2/noniid_kd/final_model.pt            | Bin 0 -> 2188557 bytes
+ results_phase2/noniid_kd/metadata.json             |  30 ++
+ results_phase2/noniid_kd_evaluation.json           |  90 ++++
+ results_phase2/noniid_subtraction/final_model.pt   | Bin 0 -> 2188557 bytes
+ .../noniid_subtraction/subtraction_runtime.json    |   6 +
+ results_phase2/phase2_evaluation_corrected.json    |  66 +++
+ results_phase2/phase2_evaluation_superseded.json   |  82 ++++
+ results_phase2/phase2_final_report.md              | 104 +++++
+ results_phase2/phase2_kd_evaluation.json           | 112 +++++
+ .../proxy_data/cifar100_proxy_indices.json         |   1 +
+ results_phase2/proxy_data/proxy_grid.png           | Bin 0 -> 226042 bytes
+ scripts/_archive/analyze_counterfactual.py         | 201 +++++++++
+ scripts/_archive/analyze_geometry_d0_d3.py         |  69 +++
+ scripts/_archive/analyze_geometry_d1_canonical.py  |  72 ++++
+ scripts/_archive/analyze_geometry_d1_corrected.py  |  74 ++++
+ scripts/_archive/analyze_geometry_d2.py            |  90 ++++
+ scripts/_archive/analyze_geometry_d2_corrected.py  |  87 ++++
+ scripts/_archive/analyze_stage7a_attack_impact.py  |  66 +++
+ scripts/_archive/analyze_stage7a_unlearning.py     |  48 +++
+ scripts/_archive/analyze_trajectory.py             |  56 +++
+ scripts/_archive/analyze_update_geometry.py        |  51 +++
+ scripts/_archive/archive_move.py                   |  69 +++
+ scripts/_archive/audit_d2_partition.py             |  55 +++
+ scripts/_archive/audit_federaser.py                |  98 +++++
+ scripts/_archive/audit_stage7a_geometry.py         |  70 +++
+ scripts/_archive/audit_stage7a_metrics.py          | 115 +++++
+ scripts/_archive/audit_stage7b_final.py            | 143 +++++++
+ scripts/_archive/audit_stage7b_geometry.py         |  70 +++
+ scripts/_archive/audit_stage7b_h2_imbalance.py     |  24 ++
+ scripts/_archive/audit_stage7c_d1_canonical.py     | 100 +++++
+ scripts/_archive/audit_stage7c_d1_final.py         |  98 +++++
+ scripts/_archive/audit_stage7c_d2_final.py         |  93 ++++
+ .../_archive/audit_stage7c_d2_final_corrected.py   |  99 +++++
+ scripts/_archive/audit_stage7c_d2_recovery.py      |  94 ++++
+ scripts/_archive/audit_stage7c_final.py            | 134 ++++++
+ scripts/_archive/check_batchnorm.py                |  18 +
+ scripts/_archive/compile_stage7c_robustness.py     | 112 +++++
+ scripts/_archive/create_d1_partition.py            | 122 ++++++
+ scripts/_archive/evaluate_phase_a.py               |  54 +++
+ scripts/_archive/evaluate_phase_b.py               | 130 ++++++
+ scripts/_archive/evaluate_predictions.py           |  52 +++
+ scripts/_archive/evaluate_stage7a_unlearning.py    |  80 ++++
+ scripts/_archive/plot_stage5a.py                   |  80 ++++
+ scripts/_archive/quick_mcf_eval.py                 |  29 ++
+ scripts/_archive/run_centralized.py                | 129 ++++++
+ scripts/_archive/run_federaser.py                  | 213 ++++++++++
+ scripts/_archive/run_federated.py                  | 471 +++++++++++++++++++++
+ scripts/_archive/run_scaling_study.sh              |  10 +
+ scripts/_archive/run_stage6d_phase_a.py            |  71 ++++
+ scripts/_archive/run_stage6d_phase_b_dryrun.py     |  50 +++
+ scripts/_archive/run_stage6d_phase_b_full.py       |  54 +++
+ scripts/_archive/run_stage7a.py                    |  45 ++
+ scripts/_archive/run_stage7a_unlearning.py         |  68 +++
+ scripts/_archive/run_stage7b_mcf.py                |  32 ++
+ scripts/_archive/run_stage7b_unlearning.py         |  77 ++++
+ .../run_stage7c_d1_canonical_unlearning.py         |  51 +++
+ scripts/_archive/run_stage7c_d1_federaser.py       |  21 +
+ scripts/_archive/run_stage7c_d1_unlearning.py      |  37 ++
+ scripts/_archive/run_stage7c_d2_recovery.py        |  22 +
+ scripts/_archive/run_stage7c_d2_unlearning.py      |  45 ++
+ scripts/_archive/run_stage7c_fl.py                 |  32 ++
+ scripts/_archive/run_stage7c_unlearning.py         |  70 +++
+ scripts/_archive/stage7a_generate_partitions.py    | 150 +++++++
+ scripts/_archive/stage7c_generate_partitions.py    | 207 +++++++++
+ scripts/_archive/storage_audit.py                  | 128 ++++++
+ scripts/_archive/test_batchnorm.py                 |  40 ++
+ scripts/_archive/test_run.py                       |  14 +
+ scripts/_archive/test_sinkhorn.py                  |  47 ++
+ scripts/_archive/unlearn_stage5a.py                | 192 +++++++++
+ scripts/_archive/unlearn_stage5b.py                | 328 ++++++++++++++
+ scripts/_archive/validate_d2_attacked.py           |  50 +++
+ scripts/_archive/validate_mcf.py                   |  82 ++++
+ scripts/_archive/validate_stage7a.py               |  99 +++++
+ scripts/_archive/validate_stage7c_d1_mcf.py        | 101 +++++
+ scripts/_archive/validate_stage7c_d1_partition.py  |  50 +++
+ scripts/_archive/validate_timing.py                |  76 ++++
+ scripts/audit_kd.py                                |  54 +++
+ scripts/calc_storage.py                            |  25 ++
+ scripts/download_hf_cifar.py                       |  10 +
+ scripts/dump_trigger_image.py                      |  25 ++
+ scripts/evaluate_noniid_subtraction.py             | 130 ++++++
+ scripts/evaluate_phase2.py                         | 144 +++++++
+ scripts/evaluate_phase2_corrected.py               | 110 +++++
+ scripts/final_audit.py                             | 134 ++++++
+ scripts/final_cleanup.py                           | 131 ++++++
+ scripts/final_report_script.py                     |  75 ++++
+ scripts/final_verification.py                      |  89 ++++
+ scripts/make_meta.py                               |   6 +
+ scripts/patch_cifar.py                             |   4 +
+ scripts/per_class_asr.py                           |  57 +++
+ scripts/plot_results.py                            |  79 ++++
+ scripts/post_check.py                              |  28 ++
+ scripts/post_verification.py                       |  71 ++++
+ scripts/proxy_audit.py                             |  59 +++
+ scripts/run_experiment_v2.py                       | 240 +++++++++++
+ scripts/run_four_experiments.sh                    |  16 +
+ scripts/run_kd.py                                  | 335 +++++++++++++++
+ scripts/run_m_cf.py                                | 150 +++++++
+ scripts/run_noniid_experiments.sh                  |   9 +
+ scripts/run_noniid_m_cf.py                         | 150 +++++++
+ scripts/run_noniid_stage_abc.py                    | 378 +++++++++++++++++
+ scripts/run_noniid_subtraction.py                  |  52 +++
+ scripts/run_subtraction.py                         |  49 +++
+ scripts/step3_verify.py                            |  43 ++
+ scripts/summarize.py                               |  24 ++
+ scripts/verify_agreements.py                       |  77 ++++
+ sha256_manifest.txt                                |  51 +++
+ 141 files changed, 9908 insertions(+)
+--- git remote ---

@@ -1,0 +1,9 @@
+{
+    "m_cf_total_3_rounds_s": 75.07932901382446,
+    "m_cf_per_client_epoch_s": 1.390357944700453,
+    "fe_total_3_rounds_s": 75.82104802131653,
+    "fe_per_client_epoch_s": 1.404093481876232,
+    "fe_io_overhead_s": 0.20738983154296875,
+    "fe_compute_only_s": 75.61365818977356,
+    "note": "Includes purely training logic across 9 clients * 3 rounds * 2 epochs. FedEraser timing includes historical disk reading (isolated via fe_io_overhead_s). No logging/eval included."
+}

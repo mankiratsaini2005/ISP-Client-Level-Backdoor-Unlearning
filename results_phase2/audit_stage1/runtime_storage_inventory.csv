@@ -1,0 +1,11 @@
+Component,Scope,Time_Seconds
+Phase-1 IID Attack,Full Training,3759.0446338653564
+Phase-2 IID Logged Attack,Full Training + Log,2664.2736279964447
+Phase-2 IID M_CF,Retraining,2513.869844198227
+Phase-2 IID Subtraction,Delta subtraction,0.17723298072814941
+Phase-2 IID KD,Knowledge Distillation,
+Phase-1 NonIID Attack,Full Training,2822.8491230010986
+Phase-2 NonIID Logged Attack,Full Training + Log,4266.33623790741
+Phase-2 NonIID M_CF,Retraining,4219.169167041779
+Phase-2 NonIID Subtraction,Delta subtraction,3.768871307373047
+Phase-2 NonIID KD,Knowledge Distillation,

@@ -1,0 +1,12 @@
+record,partition,seconds,scope
+M_sub_subtraction,IID,0.177,subtraction step only
+M_KD_subtraction_plus_distillation,IID,7.816,total subtraction plus distillation
+M_KD_subtraction_plus_distillation,Non-IID,11.286,total subtraction plus distillation
+M_CF_historical_wall_timer,IID,2513.87,includes repeated in-loop evaluation and final evaluation and may include saving depending on timer boundary
+M_CF_historical_wall_timer,Non-IID,4219.17,includes repeated in-loop evaluation and final evaluation and may include saving depending on timer boundary
+FedEraser_Ecal1_reconstruction_loop,IID,629.815,includes saved-delta reads; not end-to-end
+FedEraser_Ecal1_reconstruction_loop,Non-IID,635.575,includes saved-delta reads; not end-to-end
+FedEraser_Ecal2_reconstruction_loop,IID,1211.455,includes saved-delta reads; not end-to-end
+FedEraser_Ecal2_reconstruction_loop,Non-IID,1257.768,includes saved-delta reads; not end-to-end
+M_CF_style_local_compute_microbenchmark,,75.079,3 rounds 9 retained clients 2 local epochs; excludes aggregation/update and evaluation
+FedEraser_local_compute_plus_calibration_and_reads,,75.821,3 rounds 9 retained clients 2 local epochs; excludes aggregation/update and evaluation; includes 0.207 s file I/O

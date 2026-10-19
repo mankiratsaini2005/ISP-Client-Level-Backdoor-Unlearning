@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Training outputs and large artifacts
+checkpoints/
+models/*.pt
+models/*.pth
+models/*.ckpt
+*.pth
+*.ckpt
+*.onnx
+wandb/
+tensorboard/
+logs/
+outputs/
+data/
+trajectory/
+client_partitions.pt
+
+# By default ignore loose .pt files, but allow curated model checkpoints in results/ and results_phase2/
+*.pt
+!results/**/*.pt
+!results_phase2/**/*.pt
+
+# Keep curated CSV/JSON summaries in results/ tracked by default.
