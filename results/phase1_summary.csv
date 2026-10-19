@@ -1,0 +1,5 @@
+partition,model,clean_accuracy_pct,asr_ttr_pct,utr_pct
+IID,M_clean,75.11,2.73,3.18
+IID,M_attack,75.01,56.07,3.41
+Non-IID,M_clean,70.10,3.30,3.84
+Non-IID,M_attack,69.80,32.21,4.00
