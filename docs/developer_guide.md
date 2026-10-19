@@ -25,8 +25,8 @@ pyyaml
 tqdm
 pytest
 ```
-- **Tested Environment**: Python 3.11.6, PyTorch 2.14.0, Torchvision 0.29.0, NumPy 2.4.6, Pandas 3.0.5, Matplotlib 3.11.1, PyYAML 6.0.3, tqdm 4.70.0, pytest 9.1.1.
-- **Compatibility**: Supports Python 3.10+ and PyTorch $\ge 2.0.0$ (utilizing standard `torch.nn`, `torch.optim`, and `weights_only=True` support).
+- **Tested & Verified Environment**: Python 3.11.6, PyTorch 2.14.0, Torchvision 0.29.0, NumPy 2.4.6, Pandas 3.0.5, Matplotlib 3.11.1, PyYAML 6.0.3, tqdm 4.70.0, pytest 9.1.1.
+- **Compatibility Notice**: All experiments, numerical baselines, and test suites were verified exclusively under Python 3.11.6 and PyTorch 2.14.0. While standard `torch.nn`, `torch.optim`, and `weights_only=True` support are used, compatibility with other Python versions (such as Python 3.10 or 3.12+) or other PyTorch versions is explicitly **unverified**. Teammates should strictly use the verified environment to ensure deterministic reproducibility.
 
 Create and activate the virtual environment:
 ```bash
@@ -77,22 +77,26 @@ Configuration files are stored in `configs/`:
 The repository includes an active test suite covering core components (data partitioning, backdoor trigger injection, SmallCNN architecture, FedAvg delta aggregation, deterministic seeding, and FedEraser update calibration):
 ```bash
 # Runs all 15 active unit tests (100% pass)
-PYTHONPATH=. pytest
+pytest
 ```
-
-### Fast End-to-End Smoke Test
-Run a lightweight 2-round CIFAR-10 FL cycle:
-```bash
-PYTHONPATH=. python test_cifar.py
-```
+*Result: 15 passed in ~1.4s (100% green).*
 
 ### Historical Prototype Tests
 Tests written for earlier exploratory prototype stages (100-round September 9 runs and Stage 7b runner) are preserved under `tests/historical/` for complete auditability:
 ```bash
 # Run historical prototype tests explicitly
-PYTHONPATH=. pytest tests/historical/
+pytest tests/historical/
 ```
-*(See `tests/historical/README.md` for details on why these are separated from the active suite).*
+*Result: 6 failed in ~2.5s (expected).*
+- **5 failures in `tests/historical/test_benchmark_freeze.py`** (`test_canonical_directories_exist`, `test_canonical_checkpoints_load`, `test_evaluation_splits_frozen`, `test_target_client_and_participation_history_frozen`, `test_data_partition_frozen`): These fail because they assert on superseded prototype directories from September 9 exploratory runs (`results/attack_scaling_final_gamma5_20260909_015903`, etc.) that were superseded by the Phase 1 & Phase 2 canonical benchmarks.
+- **1 failure in `tests/historical/test_stage7b_counterfactual.py`** (`test_counterfactual_exclusion`): Fails with `FileNotFoundError: 'configs/federated_baseline.yaml'` because it relies on an early prototype configuration and Stage 7b runner.
+*(These tests are preserved for historical provenance without weakening assertions, but are isolated from the active suite via `pytest.ini`).*
+
+### Fast End-to-End Smoke Test
+Run a lightweight 2-round CIFAR-10 FL cycle:
+```bash
+python test_cifar.py
+```
 
 ---
 
@@ -147,22 +151,23 @@ To regenerate these missing trajectory deltas and partition files from scratch, 
 # 1. Regenerate IID logged attack trajectory (50 rounds):
 PYTHONPATH=. python scripts/run_experiment_v2.py \
     --config configs/v2_iid.yaml \
-    --is_attack \
+    --mode attack \
     --log_trajectory \
     --output_dir results_phase2/iid_attack_logged
 
 # 2. Regenerate Non-IID logged attack trajectory (50 rounds):
 PYTHONPATH=. python scripts/run_experiment_v2.py \
     --config configs/v2_noniid.yaml \
-    --is_attack \
+    --mode attack \
     --log_trajectory \
     --output_dir results_phase2/noniid_attack_logged
 ```
-This regeneration produces:
-- All 500 per-round client delta files in `trajectory/round_XXX/delta_client_YY.pt`
-- `client_partitions.pt` (deterministic Subsets with `seed=42`)
-- `initial_model.pt` and `final_model.pt`
-- `metrics_per_round.csv` and `client_class_histograms.json`
+
+> [!NOTE]
+> **Trajectory Output Counts & Validation Status**:
+> - **File Counts**: Each trajectory generation command executes 50 rounds with 10 clients per round, generating exactly **500 client-update delta files per setting** (`trajectory/round_{r:03d}/delta_client_{c:02d}.pt` for rounds 1–50 and clients 0–9), or **1,000 client-update files combined** across both IID and Non-IID if all updates are successfully logged. Each round also saves the round-level `global_model.pt` checkpoint, alongside `client_partitions.pt` and `client_class_histograms.json`.
+> - **Validation Status**: The full 50-round trajectory regeneration has **not** been executed end-to-end to avoid long retraining times and to strictly protect existing baseline artifacts; full 50-round regeneration remains **unverified end-to-end**. However, the script mechanics, directory creation, per-client delta serialization, and partition metadata generation were verified via a controlled 1-round smoke test with temporary outputs. Note that running trajectory regeneration requires CIFAR-10 data extracted at `./data/cifar-10-batches-py`.
+
 
 Once regenerated, full FedEraser reconstruction and subtraction can be executed:
 ```bash

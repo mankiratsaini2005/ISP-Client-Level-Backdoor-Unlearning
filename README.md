@@ -13,7 +13,7 @@ The core objective is to evaluate whether the influence of a single malicious fe
 ## 1. Quick Start & Setup
 
 ### Environment Setup
-The project requires Python 3.10+ and PyTorch $\ge 2.0.0$ (tested baseline: Python 3.11.6, PyTorch 2.14.0).
+The project has been tested and verified exclusively on **Python 3.11.6** and **PyTorch 2.14.0** (with Torchvision 0.29.0, NumPy 2.4.6, Pandas 3.0.5, Matplotlib 3.11.1, PyYAML 6.0.3, tqdm 4.70.0, pytest 9.1.1). Compatibility with other Python versions (e.g., 3.10 or 3.12+) or other PyTorch versions is explicitly **unverified**.
 ```bash
 # Clone the repository and checkout the working branch
 git clone https://github.com/mankiratsaini2005/ISP-Client-Level-Backdoor-Unlearning.git
@@ -29,10 +29,13 @@ pip install -r requirements.txt
 ### Running Tests & Verification
 ```bash
 # Run the active unit test suite (15/15 passed)
-PYTHONPATH=. pytest
+pytest
+
+# Run the historical test suite (6 expected failures due to archived prototype paths)
+pytest tests/historical/
 
 # Run a fast 2-round CIFAR-10 FL smoke test
-PYTHONPATH=. python test_cifar.py
+python test_cifar.py
 ```
 
 ---
@@ -123,18 +126,22 @@ FedEraser (`scripts/run_federaser_v5.py`) and historical subtraction (`scripts/r
 # Regenerate IID logged attack trajectory (50 rounds):
 PYTHONPATH=. python scripts/run_experiment_v2.py \
     --config configs/v2_iid.yaml \
-    --is_attack \
+    --mode attack \
     --log_trajectory \
     --output_dir results_phase2/iid_attack_logged
 
 # Regenerate Non-IID logged attack trajectory (50 rounds):
 PYTHONPATH=. python scripts/run_experiment_v2.py \
     --config configs/v2_noniid.yaml \
-    --is_attack \
+    --mode attack \
     --log_trajectory \
     --output_dir results_phase2/noniid_attack_logged
 ```
-This produces all 500 per-round client updates (`trajectory/round_XXX/delta_client_YY.pt`) and `client_partitions.pt`, enabling subsequent execution of `scripts/run_federaser_v5.py` and `scripts/run_subtraction.py`.
+
+> [!NOTE]
+> **Trajectory Output Counts & Validation Status**:
+> - **File Counts**: Each trajectory generation command executes 50 rounds with 10 clients per round, producing exactly **500 client-update delta files per setting** (`trajectory/round_{r:03d}/delta_client_{c:02d}.pt` for rounds 1–50 and clients 0–9), or **1,000 client-update files combined** across both IID and Non-IID if all updates are successfully logged. Each round also saves the round-level `global_model.pt` checkpoint, alongside the overall `client_partitions.pt` and `client_class_histograms.json` metadata files.
+> - **Validation Status**: The full 50-round trajectory regeneration has **not** been executed end-to-end to avoid long retraining times and to preserve existing baseline artifacts; full 50-round regeneration remains **unverified end-to-end**. However, the script mechanics, directory creation, per-client delta serialization, and partition metadata generation have been verified via a controlled 1-round smoke test with temporary outputs. Note that running trajectory regeneration requires CIFAR-10 data extracted at `./data/cifar-10-batches-py`.
 
 ---
 
