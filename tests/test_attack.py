@@ -81,7 +81,7 @@ def test_create_asr_dataloader():
 def test_update_scaling():
     import torch
     import yaml
-    from scripts.run_federated import compute_model_delta
+    from src.training.fedavg import compute_model_delta
 
     # Create dummy states
     global_state = {

@@ -5,7 +5,10 @@ import torch
 
 # Mock the federated run by running it for 1 round, disable attack, exclude client 0
 sys.path.insert(0, os.path.abspath("."))
-from scripts.run_federated import run_federated
+try:
+    from scripts._archive.run_federated import run_federated
+except ImportError:
+    from scripts.run_federated import run_federated
 
 def test_counterfactual_exclusion():
     # Run federated for 2 rounds

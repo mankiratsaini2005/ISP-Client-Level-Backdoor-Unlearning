@@ -119,5 +119,8 @@ def run_toy_fl_test():
         
     print("TOY FL TEST: PASSED")
 
+def test_toy_fl():
+    run_toy_fl_test()
+
 if __name__ == "__main__":
     run_toy_fl_test()
